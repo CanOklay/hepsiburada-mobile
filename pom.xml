@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.hepsiburada</groupId>
+  <artifactId>hepsiburada-mobile</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>hepsiburada-mobile</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <appium.version>8.5.1</appium.version>
+    <testng.version>7.8.0</testng.version>
+    <mavencleanplugin.version>3.2.0</mavencleanplugin.version>
+    <mavenresourceplugin.version>3.3.0</mavenresourceplugin.version>
+    <mavencompilerplugin.version>3.10.1</mavencompilerplugin.version>
+    <mavensurefireplugin.version>3.1.2</mavensurefireplugin.version>
+    <mavenjarplugin.version>3.0.2</mavenjarplugin.version>
+    <maveninstallplugin.version>3.1.0</maveninstallplugin.version>
+    <mavendeployplugin.version>3.0.0</mavendeployplugin.version>
+    <mavensiteplugin.version>4.0.0-M4</mavensiteplugin.version>
+    <mavenreportsplugin.version>3.4.2</mavenreportsplugin.version>
+    <extentreports.version>5.0.9</extentreports.version>
+    <testngXmlDir>src/test/java/com/hepsiburada/suite</testngXmlDir>
+    <testngXmlFile>RegressionStaging.xml</testngXmlFile>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>${appium.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${mavencleanplugin.version}</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${mavenresourceplugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${mavencompilerplugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${mavensurefireplugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${mavenjarplugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${maveninstallplugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${mavendeployplugin.version}</version>
+        </plugin>
+        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${mavensiteplugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>${mavenreportsplugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
