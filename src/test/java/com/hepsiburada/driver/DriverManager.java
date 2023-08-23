@@ -3,6 +3,8 @@ package com.hepsiburada.driver;
 import com.hepsiburada.config.ConfigFileReader;
 import com.hepsiburada.log.Logs;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.log4j.LogManager;
@@ -11,7 +13,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -49,11 +50,14 @@ public class DriverManager {
             case "safari": {
                 DesiredCapabilities iosSafariCapabilities = new DesiredCapabilities();
                 iosSafariCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.IOS);
-                iosSafariCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
-                iosSafariCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "");
                 iosSafariCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
-                iosSafariCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone X");
+                iosSafariCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 12");
+                iosSafariCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "16.2");
+                iosSafariCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
                 driver = new AppiumDriver(new URL(configFileReader.getHubUrl()), iosSafariCapabilities);
+                baseURL = configFileReader.getBaseUrl();
+                driver.get(baseURL);
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configFileReader.getImplicityWait()));
                 logger.info("****** iOS Mobile Web - Safari Test Started ******");
                 break;
             }
@@ -71,7 +75,6 @@ public class DriverManager {
                 androidCapabilities.setCapability("appium:fullReset", "true");
                 androidCapabilities.setCapability("appium:noReset", "false");
                 driver = new AppiumDriver(new URL(configFileReader.getHubUrl()), androidCapabilities);
-                baseURL =configFileReader.getBaseUrl();
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configFileReader.getImplicityWait()));
                 logger.info("****** Android App Test Started ******");
                 break;
