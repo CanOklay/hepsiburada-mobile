@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Single Thread Test">
+    <test name="AndroidTest" parallel="tests">
+        <parameter name="platform" value="android"/>
+        <classes>
+            <class name="com.hepsiburada.test.AndroidAppTest"/>
+        </classes>
+    </test>
+    <test name="SafariAppTest">
+        <parameter name="platform" value="safari"/>
+        <classes>
+            <class name="com.hepsiburada.test.WebAppTest"/>
+        </classes>
+    </test>
+</suite>
