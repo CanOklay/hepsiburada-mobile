@@ -17,7 +17,9 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <appium.version>8.5.1</appium.version>
-    <testng.version>7.8.0</testng.version>
+    <selenium.version>4.10.0</selenium.version>
+    <testng.version>7.5</testng.version>
+    <cassandra.version>4.0.4</cassandra.version>
     <mavencleanplugin.version>3.2.0</mavencleanplugin.version>
     <mavenresourceplugin.version>3.3.0</mavenresourceplugin.version>
     <mavencompilerplugin.version>3.10.1</mavencompilerplugin.version>
@@ -28,6 +30,7 @@
     <mavensiteplugin.version>4.0.0-M4</mavensiteplugin.version>
     <mavenreportsplugin.version>3.4.2</mavenreportsplugin.version>
     <extentreports.version>5.0.9</extentreports.version>
+    <lombok.version>1.18.26</lombok.version>
     <testngXmlDir>src/test/java/com/hepsiburada/suite</testngXmlDir>
     <testngXmlFile>RegressionStaging.xml</testngXmlFile>
   </properties>
@@ -44,6 +47,41 @@
       <artifactId>java-client</artifactId>
       <version>${appium.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cassandra</groupId>
+      <artifactId>cassandra-all</artifactId>
+      <version>${cassandra.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>${extentreports.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>31.1-jre</version>
+      </dependency>
   </dependencies>
 
   <build>
