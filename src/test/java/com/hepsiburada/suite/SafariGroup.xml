@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Android Suite">
+    <test name="Tests" parallel="none">
+        <parameter name="platform" value="safari"/>
+        <groups>
+            <run>
+                <include name="hook"/>
+                <include name="safari"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.hepsiburada.test.WebAppTest"/>
+        </classes>
+    </test>
+</suite>
