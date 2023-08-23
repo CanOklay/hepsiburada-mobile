@@ -1,10 +1,8 @@
-package com.hepsiburada.driver;
+package com.hepsiburada.manager;
 
 import com.hepsiburada.config.ConfigFileReader;
 import com.hepsiburada.log.Logs;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.log4j.LogManager;
