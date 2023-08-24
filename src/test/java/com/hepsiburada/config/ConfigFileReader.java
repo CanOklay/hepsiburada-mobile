@@ -68,10 +68,4 @@ public class ConfigFileReader {
         if(implicityWait != null) return Long.parseLong(implicityWait);
         else throw new RuntimeException("ImplicitlyWait not specified in the configs.properties file.");
     }
-
-    public int getWebDriverWait() {
-        String webDriverWait = properties.getProperty("webDriverWait");
-        if(webDriverWait != null) return Integer.parseInt(webDriverWait);
-        else throw new RuntimeException("PageLoadTimeout not specified in the configs.properties file.");
-    }
 }

@@ -1,15 +1,24 @@
 package com.hepsiburada.base;
 
+import com.hepsiburada.log.Logs;
 import com.hepsiburada.test.BaseTest;
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Fatih Can Oklay
@@ -17,6 +26,48 @@ import java.util.Date;
  */
 
 public class BasePage extends BaseTest {
+
+    Logger logger = LogManager.getLogger(Logs.class.getName());
+
+    public WebElement findElement(By by) {
+        return driver.findElement(by);
+    }
+
+    public List<WebElement> findElements(By by) {
+        return driver.findElements(by);
+    }
+
+    public void sendKeys(By by, String text) {
+        findElement(by).sendKeys(text);
+    }
+
+    public void clickElement(By by) {
+        Actions action = new Actions(driver);
+        action.moveToElement(findElement(by))
+                .click()
+                .build()
+                .perform();
+    }
+
+    public String getText(By by) {
+        return findElement(by).getText();
+    }
+
+    public void waitSeconds(int seconds) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(seconds);
+    }
+
+    public void isElementDisplayed(By by) {
+        findElement(by).isDisplayed();
+    }
+
+    public void assertFail() {
+        Assert.fail();
+    }
+
+    public void assertEquals(String actual, String expected) {
+        Assert.assertEquals(actual, expected);
+    }
 
     public String screenShot(String screenshotName) throws IOException {
         DateFormat dateFormat;
