@@ -10,6 +10,16 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static com.hepsiburada.constant.SearchConstant.SEARCH_COMPUTER_TEXT;
+import static com.hepsiburada.element.android.HomePageElements.SEARCH_BOX;
+import static com.hepsiburada.element.android.ProductsPageElements.FIRST_COMPUTER_PRODUCT;
+import static com.hepsiburada.element.android.SearchElements.SUGGESTIONS;
+
+/**
+ * Created by Fatih Can Oklay
+ * Date: 23.08.2023
+ */
+
 public class StepImplementations extends BasePage {
 
     Logger logger = LogManager.getLogger(Logs.class.getName());
@@ -76,6 +86,23 @@ public class StepImplementations extends BasePage {
             logger.error(e.getMessage());
             logger.info("Element is NOT checked successfully");
             ExtentLogger.info("Element is NOT checked successfully");
+            assertFail();
+        }
+    }
+
+    public void goToProductDetailPage() {
+        try {
+            click(SEARCH_BOX);
+            writeText(SEARCH_BOX, SEARCH_COMPUTER_TEXT);
+            selectInList(0, SUGGESTIONS);
+            click(FIRST_COMPUTER_PRODUCT);
+            logger.info("Gone to the product detail page successfully");
+            ExtentLogger.info("Gone to the product detail page successfully");
+        } catch (Exception e) {
+            ExtentLogger.info(e.getMessage());
+            logger.error(e.getMessage());
+            logger.info("Can not go to the product detail page successfully");
+            ExtentLogger.info("Can not go to the product detail page successfully");
             assertFail();
         }
     }

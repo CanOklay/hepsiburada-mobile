@@ -4,6 +4,11 @@ import com.hepsiburada.manager.DriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 24.08.2023
+ */
+
 public final class ScreenshotUtils {
 
     private ScreenshotUtils() {
