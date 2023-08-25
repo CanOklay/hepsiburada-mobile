@@ -16,14 +16,19 @@ import static com.hepsiburada.element.android.SearchElements.*;
 
 public class AndroidAppTest extends StepImplementations {
 
-    @Test(testName = "Turning back from the product detail page",
+    @Test(testName = "User should turn back from the product detail page",
             groups = {"android"})
-    public void turning_back_from_product_detail_page() {
-        click(SEARCH_BOX);
-        writeText(SEARCH_BOX, SEARCH_COMPUTER_TEXT);
-        selectInList(0, SUGGESTIONS);
-        click(FIRST_COMPUTER_PRODUCT);
+    public void user_should_turn_back_from_product_detail_page() {
+        goToProductDetailPage();
         click(TURN_BACK_BUTTON);
         isDisplayed(PRODUCT_LIST);
+    }
+
+    @Test(testName = "User should share product on the product detail page",
+            groups = {"android"})
+    public void user_should_share_product_on_product_detail_page() {
+        goToProductDetailPage();
+        click(SHARE_BUTTON);
+        isDisplayed(SHARE_TITLE);
     }
 }

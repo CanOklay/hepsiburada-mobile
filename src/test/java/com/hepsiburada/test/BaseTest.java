@@ -13,6 +13,11 @@ import org.testng.annotations.Parameters;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 23.08.2023
+ */
+
 public class BaseTest extends DriverManager {
 
     Logger logger = LogManager.getLogger(Logs.class.getName());

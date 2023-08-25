@@ -12,6 +12,11 @@ import org.openqa.selenium.interactions.Sequence;
 import java.time.Duration;
 import java.util.Collections;
 
+/**
+ * Created by Fatih Can Oklay
+ * Date: 24.08.2023
+ */
+
 public class PageActionsHelper extends BasePage {
 
     public void scrollForMobile(By by) {
