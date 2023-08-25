@@ -11,8 +11,9 @@ public class ProductDetailPageElements {
 
     public static final By TURN_BACK_BUTTON = By.id("leftIcon");
     public static final By SHARE_BUTTON = By.id("share");
-    public static final By COMPARE_BUTTON = By.id("compareIcon");
+    public static final By COMPARE_BUTTON_PRODUCT_DETAIL = By.id("compareIcon");
     public static final By COMPARE_TITLE = By.id("compareTitleTxt");
+    public static final By COMPARE_BUTTON = By.id("compareTxt");
     public static final By SHARE_TITLE = By.id("android:id/title");
     public static final By ALL_FEATURES_BUTTON = By.id("tvAllKeyFeatures");
     public static final By PRODUCT_FEATURES_TITLE = By.xpath("//android.widget.LinearLayout[@content-desc=\"Ürün Özellikleri\"]/android.widget.TextView");

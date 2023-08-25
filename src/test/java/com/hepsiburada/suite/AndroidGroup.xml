@@ -13,7 +13,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.hepsiburada.test.AndroidAppTest"/>
+            <class name="com.hepsiburada.test.androidApp.ProductDetailPageTest"/>
         </classes>
     </test>
 </suite>

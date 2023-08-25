@@ -53,6 +53,10 @@ public class BasePage extends BaseTest {
         return findElement(by).getText();
     }
 
+    public void turnBack() {
+        driver.navigate().back();
+    }
+
     public void waitSeconds(int seconds) throws InterruptedException {
         TimeUnit.SECONDS.sleep(seconds);
     }
