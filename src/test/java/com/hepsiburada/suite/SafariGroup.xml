@@ -13,7 +13,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.hepsiburada.test.WebAppTest"/>
+            <class name="com.hepsiburada.test.iosSafari.ProductDetailPageTest"/>
         </classes>
     </test>
 </suite>

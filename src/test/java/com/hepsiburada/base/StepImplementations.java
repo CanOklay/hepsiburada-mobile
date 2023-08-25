@@ -106,4 +106,30 @@ public class StepImplementations extends BasePage {
             assertFail();
         }
     }
+
+    public void verifyText(By by, String text) {
+        try {
+            assertEquals(getText(by), text);
+            logger.info(by + " text is checked successfully");
+            ExtentLogger.info(by + " text is checked successfully");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info(by + " text is not checked successfully");
+            ExtentLogger.info(by + " text is not checked successfully");
+            assertFail();
+        }
+    }
+
+    public void goBack() {
+        try {
+            turnBack();
+            logger.info("Gone back successfully");
+            ExtentLogger.info("Gone back successfully");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Could not go back successfully");
+            ExtentLogger.info("Could not go back successfully");
+            assertFail();
+        }
+    }
 }

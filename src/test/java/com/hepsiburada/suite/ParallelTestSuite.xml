@@ -4,13 +4,13 @@
     <test name="AndroidTest" parallel="tests">
         <parameter name="platform" value="android"/>
         <classes>
-            <class name="com.hepsiburada.test.AndroidAppTest"/>
+            <class name="com.hepsiburada.test.androidApp.ProductDetailPageTest"/>
         </classes>
     </test>
     <test name="SafariAppTest">
         <parameter name="platform" value="safari"/>
         <classes>
-            <class name="com.hepsiburada.test.WebAppTest"/>
+            <class name="com.hepsiburada.test.iosSafari.ProductDetailPageTest"/>
         </classes>
     </test>
 </suite>
