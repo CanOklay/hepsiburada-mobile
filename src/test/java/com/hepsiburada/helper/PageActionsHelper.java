@@ -12,6 +12,8 @@ import org.openqa.selenium.interactions.Sequence;
 import java.time.Duration;
 import java.util.Collections;
 
+import static com.hepsiburada.constant.PageActionsHelperConstants.FIRST_FINGER;
+
 /**
  * Created by Fatih Can Oklay
  * Date: 24.08.2023
@@ -28,14 +30,13 @@ public class PageActionsHelper extends BasePage {
     }
 
     private static void performScrollUsingSequence(int startX, int startY, int endX, int endY) {
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "first-finger");
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, FIRST_FINGER);
         Sequence sequence = new Sequence(finger, 0)
                 .addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
                 .addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
                 .addAction(finger.createPointerMove(Duration.ofMillis(300), PointerInput.Origin.viewport(), endX, endY))
                 .addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
         ((DriverManager.getDriver())).perform(Collections.singletonList(sequence));
-
     }
 
     private static void performScroll() {
@@ -44,7 +45,6 @@ public class PageActionsHelper extends BasePage {
         int endX = size.getWidth() / 2;
         int startY = size.getHeight() / 2;
         int endY = (int) (size.getHeight() * 0.25);
-
         performScrollUsingSequence(startX, startY, endX, endY);
     }
 

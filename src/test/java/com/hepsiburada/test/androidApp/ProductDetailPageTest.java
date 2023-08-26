@@ -1,6 +1,7 @@
 package com.hepsiburada.test.androidApp;
 
 import com.hepsiburada.base.StepImplementations;
+import com.hepsiburada.listener.RetryAnalyzer;
 import org.testng.annotations.Test;
 
 import static com.hepsiburada.constant.ComparePageConstants.COMPARE_LIST_TITLE_TEXT;
@@ -19,6 +20,7 @@ import static com.hepsiburada.element.android.ProductsPageElements.SECOND_COMPUT
 public class ProductDetailPageTest extends StepImplementations {
 
     @Test(testName = "User should turn back from the product detail page",
+            retryAnalyzer = RetryAnalyzer.class,
             groups = {"android"})
     public void user_should_turn_back_from_product_detail_page() {
         goToProductDetailPage();
@@ -27,6 +29,7 @@ public class ProductDetailPageTest extends StepImplementations {
     }
 
     @Test(testName = "User should share product on the product detail page",
+            retryAnalyzer = RetryAnalyzer.class,
             groups = {"android"})
     public void user_should_share_product_on_product_detail_page() {
         goToProductDetailPage();
@@ -35,6 +38,7 @@ public class ProductDetailPageTest extends StepImplementations {
     }
 
     @Test(testName = "User should compare products on the product detail page",
+            retryAnalyzer = RetryAnalyzer.class,
             groups = {"android"})
     public void user_should_compare_products_on_product_detail_page() {
         goToProductDetailPage();
@@ -53,6 +57,7 @@ public class ProductDetailPageTest extends StepImplementations {
     }
 
     @Test(testName = "User should see product features on the product detail page",
+            retryAnalyzer = RetryAnalyzer.class,
             groups = {"android"})
     public void user_should_see_product_features_on_product_detail_page() {
         goToProductDetailPage();
@@ -67,6 +72,7 @@ public class ProductDetailPageTest extends StepImplementations {
 
     @Test(testName = "User should add the product to favorites on the product detail page",
             dataProvider = "correctData",
+            retryAnalyzer = RetryAnalyzer.class,
             groups = {"android"})
     public void user_should_add_product_to_favorites_on_product_detail_page(String correctMail, String correctPassword) throws InterruptedException {
         goToProductDetailPage();
