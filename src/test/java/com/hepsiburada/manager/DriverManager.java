@@ -66,12 +66,8 @@ public class DriverManager {
                 androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, configFileReader.getAndroidEmulatorVersion());
                 androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, configFileReader.getAndroidEmulatorName());
                 androidCapabilities.setCapability(MobileCapabilityType.UDID, configFileReader.getAndroidEmulator());
-                //androidCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/src/test/resources/files/Hepsiburada_ Online Shopping_5.21.0_Apkpure.apk");
                 androidCapabilities.setCapability("appium:appPackage", "com.pozitron.hepsiburada");
                 androidCapabilities.setCapability("appium:appActivity", "com.hepsiburada.ui.startup.SplashActivity");
-                //androidCapabilities.setCapability("appium:skipUnlock", "true");
-                //androidCapabilities.setCapability("appium:fullReset", "true");
-                //androidCapabilities.setCapability("appium:noReset", "false");
                 driver = new AppiumDriver(new URL(configFileReader.getHubUrl()), androidCapabilities);
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configFileReader.getImplicityWait()));
                 logger.info("****** Android App Test Started ******");

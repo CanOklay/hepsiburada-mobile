@@ -1,10 +1,7 @@
 package com.hepsiburada.base;
 
-import com.hepsiburada.log.Logs;
 import com.hepsiburada.test.BaseTest;
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
