@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,8 +27,6 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class BasePage extends BaseTest {
-
-    Logger logger = LogManager.getLogger(Logs.class.getName());
 
     public WebElement findElement(By by) {
         return driver.findElement(by);
@@ -82,5 +81,13 @@ public class BasePage extends BaseTest {
         File destination = new File(path);
         FileUtils.copyFile(scrFile, destination);
         return path;
+    }
+
+    @DataProvider
+    public Object[][] correctData() {
+        Object[][] data = new Object[1][2];
+        data[0][0] = "canvivoo66@gmail.com";
+        data[0][1] = "Can12345.!";
+        return data;
     }
 }
