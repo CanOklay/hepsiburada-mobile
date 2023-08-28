@@ -2,7 +2,7 @@
 
 I used Java, Appium and Testng for my test scripts, Extent Reports for reporting, Log4j for logging.
 
-For parallel running: You should change suiteXmlFile at pom.xml below of surefire plugin or you can directly run ParallelTestSeuite.xml file
+For parallel running: You should change suiteXmlFile at pom.xml below of surefire plugin or you can directly run ParallelTestSuite.xml file
 
 You can change the device and browser from testng.xml files
 
