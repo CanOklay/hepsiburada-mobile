@@ -32,7 +32,7 @@
     <extentreports.version>5.0.9</extentreports.version>
     <lombok.version>1.18.26</lombok.version>
     <testngXmlDir>src/test/java/com/hepsiburada/suite</testngXmlDir>
-    <testngXmlFile>RegressionStaging.xml</testngXmlFile>
+    <testngXmlFile>AndroidGroup.xml</testngXmlFile>
   </properties>
 
   <dependencies>
@@ -104,6 +104,11 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${mavensurefireplugin.version}</version>
+          <configuration>
+            <suiteXmlFiles>
+              <suiteXmlFile>${testngXmlDir}/${testngXmlFile}</suiteXmlFile>
+            </suiteXmlFiles>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
