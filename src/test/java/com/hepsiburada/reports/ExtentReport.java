@@ -21,8 +21,8 @@ public class ExtentReport {
             ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir") + "/report/extent-report.html");
 
             spark.config().setTheme(Theme.DARK);
-            spark.config().setReportName("Vivoo Automation Report");
-            spark.config().setDocumentTitle("Vivoo");
+            spark.config().setReportName("Hepsiburada Mobile Automation Report");
+            spark.config().setDocumentTitle("Hepsiburada");
             extent.attachReporter(spark);
         }
     }
