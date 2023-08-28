@@ -77,7 +77,7 @@ public class ProductDetailPageTest extends StepImplementations {
     public void user_should_add_product_to_favorites_on_product_detail_page(String correctMail, String correctPassword) throws InterruptedException {
         goToProductDetailPage();
         click(ADD_FAVORITES_BUTTON);
-        waitSeconds(4);
+        waitSeconds(5);
         isDisplayed(LOGIN_TITLE);
         writeText(EMAIL_INPUT, correctMail);
         click(LOGIN_BUTTON_EMAIL);
