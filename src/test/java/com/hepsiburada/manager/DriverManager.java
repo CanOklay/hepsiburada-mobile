@@ -25,7 +25,6 @@ public class DriverManager {
 
     public static AppiumDriver driver;
     public JavascriptExecutor js;
-    public String baseURL;
     Logger logger = LogManager.getLogger(Logs.class.getName());
     ConfigFileReader configFileReader = new ConfigFileReader();
 
@@ -72,8 +71,6 @@ public class DriverManager {
             }
         }
         js = driver;
-        baseURL = configFileReader.getBaseUrl();
-        driver.get(baseURL);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configFileReader.getImplicityWait()));
     }
 }
