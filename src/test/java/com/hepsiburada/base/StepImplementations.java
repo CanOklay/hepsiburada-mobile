@@ -1,6 +1,5 @@
 package com.hepsiburada.base;
 
-import com.hepsiburada.helper.PageActionsHelper;
 import com.hepsiburada.log.Logs;
 import com.hepsiburada.reports.ExtentLogger;
 import org.apache.log4j.LogManager;
@@ -23,7 +22,6 @@ import static com.hepsiburada.element.android.SearchElements.SUGGESTIONS;
 public class StepImplementations extends BasePage {
 
     Logger logger = LogManager.getLogger(Logs.class.getName());
-    PageActionsHelper pageActionsHelper = new PageActionsHelper();
 
     public void click(By by) {
         try {
@@ -51,9 +49,9 @@ public class StepImplementations extends BasePage {
         }
     }
 
-    public void scrollDown(By element) {
+    public void scrollDown() {
         try {
-            pageActionsHelper.scrollForMobile(element);
+            scrollDownBy();
             logger.info("Scrolled successfully");
             ExtentLogger.info("Scrolled successfully");
         } catch (Exception e) {
