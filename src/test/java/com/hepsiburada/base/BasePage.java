@@ -2,11 +2,11 @@ package com.hepsiburada.base;
 
 import com.hepsiburada.test.BaseTest;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 
@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -43,6 +45,22 @@ public class BasePage extends BaseTest {
                 .click()
                 .build()
                 .perform();
+    }
+
+    public void scrollDownBy() {
+            Dimension size = driver.manage().window().getSize();
+            int startX = size.getWidth() / 2;
+            int startY = size.getHeight() / 2;
+            int endX = startX;
+            int endY = (int) (size.getHeight() * 0.25);
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence sequence = new Sequence(finger, 1)
+                    .addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                    .addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
+                    .addAction(new Pause(finger, Duration.ofMillis(200)))
+                    .addAction(finger.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY))
+                    .addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
+            driver.perform(Collections.singletonList(sequence));
     }
 
     public String getText(By by) {
