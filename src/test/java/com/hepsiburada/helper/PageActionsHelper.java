@@ -1,6 +1,5 @@
 package com.hepsiburada.helper;
 
-import com.hepsiburada.base.BasePage;
 import com.hepsiburada.manager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -19,12 +18,12 @@ import static com.hepsiburada.constant.PageActionsHelperConstants.FIRST_FINGER;
  * Date: 24.08.2023
  */
 
-public class PageActionsHelper extends BasePage {
+public class PageActionsHelper extends DriverManager {
 
     public void scrollForMobile(By by) {
         String previousPageSource = "";
-        while (isElementNotEnabled(findElement(by)) && isNotEndofPage(previousPageSource)) {
-            previousPageSource = DriverManager.getDriver().getPageSource();
+        while (isElementNotEnabled(driver.findElement(by)) && isNotEndOfPage(previousPageSource)) {
+            previousPageSource = driver.getPageSource();
             performScroll();
         }
     }
@@ -36,11 +35,11 @@ public class PageActionsHelper extends BasePage {
                 .addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()))
                 .addAction(finger.createPointerMove(Duration.ofMillis(300), PointerInput.Origin.viewport(), endX, endY))
                 .addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
-        ((DriverManager.getDriver())).perform(Collections.singletonList(sequence));
+        driver.perform(Collections.singletonList(sequence));
     }
 
     private static void performScroll() {
-        Dimension size = DriverManager.getDriver().manage().window().getSize();
+        Dimension size = driver.manage().window().getSize();
         int startX = size.getWidth() / 2;
         int endX = size.getWidth() / 2;
         int startY = size.getHeight() / 2;
@@ -48,8 +47,8 @@ public class PageActionsHelper extends BasePage {
         performScrollUsingSequence(startX, startY, endX, endY);
     }
 
-    private static boolean isNotEndofPage(String previousPageSource) {
-        return !previousPageSource.equals(DriverManager.getDriver().getPageSource());
+    private static boolean isNotEndOfPage(String previousPageSource) {
+        return !previousPageSource.equals(driver.getPageSource());
     }
 
     private static boolean isElementNotEnabled(WebElement element) {

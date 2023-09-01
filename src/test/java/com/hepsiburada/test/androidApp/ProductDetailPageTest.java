@@ -20,7 +20,6 @@ import static com.hepsiburada.element.android.ProductsPageElements.SECOND_COMPUT
 public class ProductDetailPageTest extends StepImplementations {
 
     @Test(testName = "User should turn back from the product detail page",
-            retryAnalyzer = RetryAnalyzer.class,
             groups = {"android"})
     public void user_should_turn_back_from_product_detail_page() {
         goToProductDetailPage();

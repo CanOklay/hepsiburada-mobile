@@ -53,9 +53,6 @@ public class DriverManager {
                 iosSafariCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "16.2");
                 iosSafariCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
                 driver = new AppiumDriver(new URL(configFileReader.getHubUrl()), iosSafariCapabilities);
-                baseURL = configFileReader.getBaseUrl();
-                driver.get(baseURL);
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configFileReader.getImplicityWait()));
                 logger.info("****** iOS Mobile Web - Safari Test Started ******");
                 break;
             }
@@ -75,5 +72,8 @@ public class DriverManager {
             }
         }
         js = driver;
+        baseURL = configFileReader.getBaseUrl();
+        driver.get(baseURL);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configFileReader.getImplicityWait()));
     }
 }
