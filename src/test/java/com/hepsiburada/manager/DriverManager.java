@@ -48,8 +48,8 @@ public class DriverManager {
                 DesiredCapabilities iosSafariCapabilities = new DesiredCapabilities();
                 iosSafariCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.IOS);
                 iosSafariCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
-                iosSafariCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 12");
-                iosSafariCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "16.2");
+                iosSafariCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 14");
+                iosSafariCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "16.4");
                 iosSafariCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
                 driver = new AppiumDriver(new URL(configFileReader.getHubUrl()), iosSafariCapabilities);
                 logger.info("****** iOS Mobile Web - Safari Test Started ******");

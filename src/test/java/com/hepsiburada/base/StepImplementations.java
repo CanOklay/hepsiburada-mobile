@@ -36,6 +36,20 @@ public class StepImplementations extends BasePage {
         }
     }
 
+    public void clickIfExist(By by) {
+        try {
+            if (findElement(by).isDisplayed()) {
+                clickElement(by);
+                logger.info("Clicked " + by + " element successfully");
+                ExtentLogger.info("Clicked " + by + " element successfully");
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.info("Can not clicked " + by + " element successfully");
+            ExtentLogger.info("Can not clicked " + by + " element successfully");
+        }
+    }
+
     public void writeText(By by, String text) {
         try {
             sendKeys(by, text);

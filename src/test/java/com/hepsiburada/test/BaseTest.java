@@ -37,7 +37,7 @@ public class BaseTest extends DriverManager {
 
     @AfterMethod(groups = {"hook"})
     public void tearDownAppium(ITestResult result) {
-        logger.info("**** Android App Test Finished ****");
+        logger.info("**** App Test Finished ****");
         if (driver != null) {
             driver.quit();
         }
